@@ -1,4 +1,4 @@
-baseurl = "http://atlas.linkedpipes.com/"
+baseurl = "https://atlas.linkedpipes.com/"
 canonifyURLs = false
 disableAliases = true
 disableHugoGeneratorInject = true
