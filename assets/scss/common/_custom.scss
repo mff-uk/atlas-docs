@@ -19,4 +19,5 @@ body {
 
 [data-dark-mode] body {
   background-image: linear-gradient(to right bottom, #851f6500, #851f6500, #851f6500, #851f6520, #851f6540);
+  background-attachment: fixed;
 }
