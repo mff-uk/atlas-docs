@@ -3,15 +3,13 @@ title : "Demo"
 ---
 
 Please see the included video to see how to use the demo instance.
+You can also go through the testing scenario seen in the video step by step yourself.
 
 <a class="btn btn-primary btn-lg px-4 mb-2" href="https://mff-uk.github.io/atlas/" role="button">Go to the demo instance</a>
 
 <div class="video-container" style="margin-top: 2em;">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/m3_xrMNDJkc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
-
-## Basic testing scenario
-TODO
 
 ## Full testing scenario
 In this scenario, we are going to create a specification for _Company data_ as the specification editor. Next, we will imagine that a data producer follows the specification for JSON and provides compliant data. Finally, we are going to show how a data consumer can reuse the specification to load the data from the publisher into a set of various local databases, each with its own data model.
@@ -74,6 +72,26 @@ https://mff-uk.github.io/demo-vocabularies/modified/modifications.ttl
 1. We do not focus on the data producer role in this scenario. We imagine that the data producer finds the data specification and publishes data compliant with the JSON Schema from the specification, producing a JSON-LD file which is also an RDF serialization of the compliant data. We provide a [sample containing data about two companies](/test.json) from the Czech Business Registry.
 
 ### Data consumer
-TODO
+1. In Atlas with the project for _Company data_ open, click on _Import schema_ in the Data consumer section.
+2. You can see the Schema category containing the loaded specification. Click the _Save_ button.
+3. Go to _Data sources_ and create new JSON-LD store type data source, with custom label and the URL of the [sample data file](/test.json).
+4. Go to _Jobs_, create a new _Import data_ job, label it and select the created data source.
+5. Run the data import job. Now, the data from the publisher is loaded in the MM-evocat internal data representation.
+6. Now, we are going to decompose the data into two logical models. We start with MongoDB.
+    1. In MongoDB, we will store company data and addresses. Click on _Logical Models_, _Create new_, MongoDB database, custom label, e.g. "Mongo Company Data".
+    2. Click on the created logical model and _Create new_ under _Mappings_
+    3. Click on the node _Legal Entity_, _Confirm_. Note that the current mapping of the Schema category to the MongoDB data model can be seen on the right-hand side. Do not click on "Finish mapping" until we are done with creating it.
+    4. Click on the "+" button in the `legal_entity` on the right hand side to add a property.[^2] Click on the _notation_ node in the graph at the end of the path _Legal Entity_ -> _Identifier_ -> _notation_.
+    5. Click _Next_, select _Static_, click _Next_, rename to `_id` and _Finish_.
+    6. In the same way, add _legalName_ and _foundingDate_.
+    7. When adding _Address_, note that this needs to be added as a _Complex_ type of property, as it will have subproperties.
+    8. Finally, we are going to add the properties of the address and click on _Finish mapping_.
+15. Now, we add a second model for PostgreSQL
+    1. Click on _Logical Models_, _Create new_, PostgreSQL database, custom label, e.g. "SQL Addresses".
+    2. Click on the created logical model and _Create new_ under _Mappings_
+    3. We select _Address_ as a root and add the address attributes (their `_value` parts) to the mapping and _Finish mapping_.
+16. Click on _Jobs_ and create a _Category to Model_ job with the MongoDB model selected. Run the job to store the data from the MM-evocat internal representation to MongoDB.
+17. Do the same for the PostgreSQL model.
 
 [^1]: Note that the links point to the original vocabularies whenever they support [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS), which is necessary for Dataspecer to be able to access them. The vocabularies that do not support CORS were cached in our [GitHub repository](https://github.com/mff-uk/demo-vocabularies).
+[^2]: This is a bit similar to what we did as a Specification editor in Dataspecer. Re-using the data structure from there for this step is our future work.
