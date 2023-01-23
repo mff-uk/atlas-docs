@@ -71,7 +71,7 @@ https://mff-uk.github.io/demo-vocabularies/modified/modifications.ttl
 14. Go to _Generate artifacts_, click on _Generate .ZIP file_. The specification including the technical artifacts is downloaded and can be published on the Web. _Go back to Atlas_
 
 ### Data producer
-1. We do not focus on the data producer role in this scenario. We imagine that the data producer finds the data specification and publishes data compliant with the JSON Schema from the specification, producing a JSON-LD file which is also an RDF serialization of the compliant data. We provide a [sample containing data about two companies](/static/test.json) from the Czech Business Registry.
+1. We do not focus on the data producer role in this scenario. We imagine that the data producer finds the data specification and publishes data compliant with the JSON Schema from the specification, producing a JSON-LD file which is also an RDF serialization of the compliant data. We provide a [sample containing data about two companies](/test.json) from the Czech Business Registry.
 
 ### Data consumer
 TODO
