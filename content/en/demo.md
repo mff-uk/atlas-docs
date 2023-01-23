@@ -55,18 +55,18 @@ https://mff-uk.github.io/demo-vocabularies/modified/modifications.ttl
     6. Address -> post name
     7. Address -> thoroughfare
 12. Now, the basic structure is done. However, we need to adjust the technical labels of attributes and associations to be used in technical artifacts such as JSON data and JSON Schema, the multiplicities and the datatypes of the attributes as this information is missing in the vocabulary sources. We do that by using the "edit" button next to the attributes and associations and adjusting as necessary. We can also adjust the order of the attributes by dragging them. The result should look like this:
-  1. identifier \[1..1\]
-      1. notation: `String` \[1..1\]
-  2. legal name: `Text` \[1..1\]
-  3. *founding_date*: `Date` \[0..1\]
-  4. registered_address \[0..1\]
-      1. address_area: `Text` \[0..1\]
-      2. locator_designator: `String` \[0..1\]
-      3. post_code: `String` \[0..1\]
-      4. post_name: `Text` \[0..1\]
-      5. *admin_unit_l1*: `Text` \[0..1\]
-      6. *admin_unit_l1*: `Text` \[0..1\]
-      7. thoroughfare: `Text` \[0..1\]
+    1. identifier \[1..1\]
+       1. notation: `String` \[1..1\]
+    2. legal name: `Text` \[1..1\]
+    3. *founding_date*: `Date` \[0..1\]
+    4. registered_address \[0..1\]
+       1. address_area: `Text` \[0..1\]
+       2. locator_designator: `String` \[0..1\]
+       3. post_code: `String` \[0..1\]
+       4. post_name: `Text` \[0..1\]
+       5. *admin_unit_l1*: `Text` \[0..1\]
+       6. *admin_unit_l1*: `Text` \[0..1\]
+       7. thoroughfare: `Text` \[0..1\]
 13. Now, _Back to specification manager_ and _Go back to Atlas_
 14. Go to _Generate artifacts_, click on _Generate .ZIP file_. The specification including the technical artifacts is downloaded and can be published on the Web. _Go back to Atlas_
 
