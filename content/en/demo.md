@@ -92,6 +92,7 @@ https://mff-uk.github.io/demo-vocabularies/modified/modifications.ttl
     3. We select _Address_ as a root and add the address attributes (their `_value` parts) to the mapping and _Finish mapping_.
 16. Click on _Jobs_ and create a _Category to Model_ job with the MongoDB model selected. Run the job to store the data from the MM-evocat internal representation to MongoDB.
 17. Do the same for the PostgreSQL model.
+18. Click _Models_ and click on the name of the model you want to view. You see commands that, when run in a database, will populate the database with the imported data.
 
 [^1]: Note that the links point to the original vocabularies whenever they support [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS), which is necessary for Dataspecer to be able to access them. The vocabularies that do not support CORS were cached in our [GitHub repository](https://github.com/mff-uk/demo-vocabularies).
 [^2]: This is a bit similar to what we did as a Specification editor in Dataspecer. Re-using the data structure from there for this step is our future work.
