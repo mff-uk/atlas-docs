@@ -74,7 +74,7 @@ https://mff-uk.github.io/demo-vocabularies/modified/modifications.ttl
 ### Data consumer
 1. In Atlas with the project for _Company data_ open, click on _Import schema_ in the Data consumer section.
 2. You can see the Schema category containing the loaded specification. Click the _Save_ button.
-3. Go to _Data sources_ and create new JSON-LD store type data source, with custom label and the URL of the [sample data file](/test.json).
+3. Go to _Data sources_ and create new JSON-LD store type data source, with custom label and the URL of the [sample data file](/test.json), i.e. `https://atlas.linkedpipes.com/test.json`.
 4. Go to _Jobs_, create a new _Import data_ job, label it and select the created data source.
 5. Run the data import job. Now, the data from the publisher is loaded in the MM-evocat internal data representation.
 6. Now, we are going to decompose the data into two logical models. We start with MongoDB.
