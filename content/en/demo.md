@@ -78,21 +78,24 @@ https://mff-uk.github.io/demo-vocabularies/modified/modifications.ttl
 4. Go to _Jobs_, create a new _Import data_ job, label it and select the created data source.
 5. Run the data import job. Now, the data from the publisher is loaded in the MM-evocat internal data representation.
 6. Now, we are going to decompose the data into two logical models. We start with MongoDB.
-    1. In MongoDB, we will store company data and addresses. Click on _Logical Models_, _Create new_, MongoDB database, custom label, e.g. "Mongo Company Data".
-    2. Click on the created logical model and _Create new_ under _Mappings_
-    3. Click on the node _Legal Entity_, _Confirm_. Note that the current mapping of the Schema category to the MongoDB data model can be seen on the right-hand side. Do not click on "Finish mapping" until we are done with creating it.
-    4. Click on the "+" button in the `legal_entity` on the right hand side to add a property.[^2] Click on the _notation_ node in the graph at the end of the path _Legal Entity_ -> _Identifier_ -> _notation_.
-    5. Click _Next_, select _Static_, click _Next_, rename to `_id` and _Finish_.
-    6. In the same way, add _legalName_ and _foundingDate_.
-    7. When adding _Address_, note that this needs to be added as a _Complex_ type of property, as it will have subproperties.
-    8. Finally, we are going to add the properties of the address and click on _Finish mapping_.
-15. Now, we add a second model for PostgreSQL
-    1. Click on _Logical Models_, _Create new_, PostgreSQL database, custom label, e.g. "SQL Addresses".
-    2. Click on the created logical model and _Create new_ under _Mappings_
-    3. We select _Address_ as a root and add the address attributes (their `_value` parts) to the mapping and _Finish mapping_.
+    1. In MongoDB, we will store company data and addresses. Make sure there is a database instance you have access to. If there is not any you can always use a [free online solution](https://railway.app/).
+    2. Click on _Databases_, _Create new_. Select type `MongoDB`, fill all other necessary information and click on _Add_.
+    3. Click on _Logical Models_, _Create new_, MongoDB database, custom label, e.g. "Mongo Company Data".
+    4. Click on the created logical model and _Create new_ under _Mappings_.
+    5. Click on the node _Legal Entity_, _Confirm_. Note that the current mapping of the Schema category to the MongoDB data model can be seen on the right-hand side. Do not click on "Finish mapping" until we are done with creating it.
+    6. Click on the "+" button in the `legal_entity` on the right hand side to add a property.[^2] Click on the _notation_ node in the graph at the end of the path _Legal Entity_ -> _Identifier_ -> _notation_.
+    7. Click _Next_, select _Static_, click _Next_, rename to `_id` and _Finish_.
+    8. In the same way, add _legalName_ and _foundingDate_.
+    9. When adding _Address_, note that this needs to be added as a _Complex_ type of property, as it will have subproperties.
+    10. Finally, we are going to add the properties of the address and click on _Finish mapping_.
+15. Now, we add a second model for PostgreSQL.
+    1. Click on _Databases_, _Create new_. Select type `PostgreSQL`, fill the connection details and click on _Add_.
+    2. Click on _Logical Models_, _Create new_, PostgreSQL database, custom label, e.g. "SQL Addresses".
+    3. Click on the created logical model and _Create new_ under _Mappings_
+    4. We select _Address_ as a root and add the address attributes (their `_value` parts) to the mapping and _Finish mapping_.
 16. Click on _Jobs_ and create a _Category to Model_ job with the MongoDB model selected. Run the job to store the data from the MM-evocat internal representation to MongoDB.
 17. Do the same for the PostgreSQL model.
-18. Click _Models_ and click on the name of the model you want to view. You see commands that, when run in a database, will populate the database with the imported data.
+18. By now, both databases should have been already populated with the data. If you want to see the statements that were used to do so, click on _Models_ and select the model you want to view.
 
 [^1]: Note that the links point to the original vocabularies whenever they support [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS), which is necessary for Dataspecer to be able to access them. The vocabularies that do not support CORS were cached in our [GitHub repository](https://github.com/mff-uk/demo-vocabularies).
 [^2]: This is a bit similar to what we did as a Specification editor in Dataspecer. Re-using the data structure from there for this step is our future work.
