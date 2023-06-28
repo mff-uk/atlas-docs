@@ -1,4 +1,4 @@
-baseurl = "https://atlas.linkedpipes.com/"
+baseurl = "https://mff-uk.github.io/atlas-docs/"
 canonifyURLs = false
 disableAliases = true
 disableHugoGeneratorInject = true
